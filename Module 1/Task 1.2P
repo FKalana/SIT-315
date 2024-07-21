@@ -222,16 +222,13 @@ const int ledPin = 13;
 
 // Define the temperature threshold to turn the fan on
 const float temperatureThreshold = 25.75;
+//simulated temperature for checking
+float simulatedTemp = 20.0;
 
 void readTemp() {
-  // Read the analog value from the TMP36
-  int sensorValue = analogRead(tmp36Pin);
-
-  // Convert the analog value to voltage
-  float voltage = sensorValue * (5.0 / 1023.0);
-
-  // Convert the voltage to temperature in Celsius
-  float temperatureC = (voltage - 0.5) * 100.0;
+  // Simulate temperature changes
+  float temperatureC = simulatedTemp;
+  simulatedTemp += 0.5; // Increment temperature for simulation
 
   // Print the temperature to the Serial Monitor
   Serial.print("Temperature: ");
